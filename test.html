@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<body>
+    <style>
+        h1{
+            text-align: center;
+            background-color: darkblue;
+        }
+        input{
+            text-align: center;
+        }
+    </style>
+    <h1>Fetch API To present University list</h1>
+    <div class="container text-center">
+        <button class="btn btn-primary" id="btn1">University</button>
+    </div>
+    <div class="container text-center" id="results">
+    </div>
+    <script>
+    var btn1 = document.getElementById("btn1");
+
+      btn1.addEventListener('click', () => {
+      fetch('http://Hipo/university-domain-list-api')
+          .then((response) => {
+              return (response.json());
+          })
+          .then((data) => {
+            var results = document.getElementById('results');
+                var template = `
+                  <h4 class="mt-4">Covid Cases</h4>
+              `
+               data.forEach((element) => {
+                  template += `
+                      <ul class="list-group mb-4">
+                          <li class="list-group-item"><strong>Country: ${element.country}</strong></li>
+                          <li class="list-group-item"><University: </strong> ${country.University}</li>
+                          
+                      </ul>
+                  `
+              })
+      
+              results.innerHTML = template;
+          })
+      })</script>
+</body>
+</html>
